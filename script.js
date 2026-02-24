@@ -309,6 +309,21 @@ function initMusica() {
 
 // ---------- LIGHTBOX PARA VESTIMENTA ----------
 function initLightbox() {
+  // Verificar que los elementos necesarios existan
+  const modal = document.getElementById('lightboxModal');
+  const overlay = document.querySelector('.lightbox-overlay');
+  const imagen = document.getElementById('lightboxImagen');
+  const btnCerrar = document.getElementById('lightboxCerrar');
+  const btnPrev = document.getElementById('lightboxPrev');
+  const btnNext = document.getElementById('lightboxNext');
+  const botonesEjemplo = document.querySelectorAll('.btn-ejemplo');
+
+  // Si falta algún elemento esencial, salir sin errores
+  if (!modal || !overlay || !imagen || !btnCerrar || !btnPrev || !btnNext || botonesEjemplo.length === 0) {
+    console.warn('Lightbox no inicializado: faltan elementos en el DOM');
+    return;
+  }
+
   const galerias = {
     caballeros: [
       'imagenes/vestimenta/hombre01.png',
@@ -323,13 +338,6 @@ function initLightbox() {
       'imagenes/vestimenta/mujer04.png'
     ]
   };
-
-  const modal = document.getElementById('lightboxModal');
-  const overlay = document.querySelector('.lightbox-overlay');
-  const imagen = document.getElementById('lightboxImagen');
-  const btnCerrar = document.getElementById('lightboxCerrar');
-  const btnPrev = document.getElementById('lightboxPrev');
-  const btnNext = document.getElementById('lightboxNext');
 
   let currentGallery = [];
   let currentIndex = 0;
@@ -360,7 +368,6 @@ function initLightbox() {
     }, 150);
   }
 
-  const botonesEjemplo = document.querySelectorAll('.btn-ejemplo');
   botonesEjemplo.forEach((btn, idx) => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
