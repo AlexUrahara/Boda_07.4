@@ -1624,3 +1624,285 @@ body {
 @media (max-width: 576px) {
   .lugar-nombre { font-size: 1.3rem; } /* Ajustado para móvil */
 }
+
+/* ========== ITINERARIO ========== */
+.itinerario-section {
+  background-color: var(--blanco);
+  padding: 4rem 0;
+  overflow: hidden;
+}
+/* ===== IMÁGENES DECORATIVAS EN ITINERARIO ===== */
+.itinerario-section {
+  position: relative; /* Necesario para posicionar las imágenes */
+}
+
+/* Imagen superior izquierda */
+.itinerario-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;           /* 🌟 TAMAÑO EN ESCRITORIO (ajusta aquí) */
+  height: 150px;          /* 🌟 TAMAÑO EN ESCRITORIO */
+  background-image: url('imagenes/flor04.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;           /* 🌟 OPACIDAD EN ESCRITORIO */
+}
+
+/* Imagen inferior derecha */
+.itinerario-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;           /* 🌟 TAMAÑO EN ESCRITORIO */
+  height: 150px;
+  background-image: url('imagenes/Recurso2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;           /* 🌟 OPACIDAD EN ESCRITORIO */
+}
+
+/* ========== RESPONSIVE ========== */
+/* 📱 Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+  .itinerario-section::before,
+  .itinerario-section::after {
+    width: 120px;
+    height: 120px;
+    opacity: 0.5;
+  }
+}
+
+/* 📱 Móvil grande (max-width: 768px) */
+@media (max-width: 768px) {
+  .itinerario-section::before,
+  .itinerario-section::after {
+    width: 100px;
+    height: 100px;
+    opacity: 0.4;
+  }
+}
+
+/* 📱 Móvil pequeño (max-width: 576px) */
+@media (max-width: 576px) {
+  .itinerario-section::before,
+  .itinerario-section::after {
+    width: 140px;
+    height: 140px;
+    opacity: 0.3;
+  }
+}
+
+.itinerario-section .section-title {
+  text-align: center;
+}
+
+.itinerario-subtitulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--gris-oscuro);
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.itinerario-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.timeline-columna {
+  max-width: 600px;
+  justify-self: end;
+}
+
+.foto-columna {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrusel-flotante {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  aspect-ratio: 3/4;
+}
+
+.foto-carrusel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  pointer-events: none;
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.foto-carrusel.active {
+  opacity: 1;
+}
+
+.timeline {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--amarillo-mostaza) 0px,
+    var(--amarillo-mostaza) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-hora {
+  flex: 0 0 100px;
+  text-align: right;
+  padding-right: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  transition: transform 2.2s cubic-bezier(0.4, 1.1, 0.3, 1.2), opacity 2.2s ease;
+  transform: translateX(-140px);
+  opacity: 0;
+}
+
+.timeline-contenido {
+  flex: 1;
+  text-align: left;
+  transition: transform 2.2s cubic-bezier(0.2, 0.9, 0.3, 1.1), opacity 2.2s ease;
+  transform: translateX(70px);
+  opacity: 0;
+}
+
+.timeline-item.visible .timeline-hora,
+.timeline-item.visible .timeline-contenido {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.timeline-hora::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 0.4rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--amarillo-mostaza);
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: 3;
+}
+
+.hora {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--amarillo-mostaza);
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-gif {
+  width: 68px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 991px) {
+  .itinerario-layout { grid-template-columns: 1fr; }
+  .timeline-columna { justify-self: center; max-width: 100%; }
+  .foto-columna { display: none; }
+}
+
+@media (max-width: 768px) {
+  .timeline::before { left: 50% !important; transform: translateX(-50%); width: 2px; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0.8rem;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--amarillo-mostaza);
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .timeline-hora::after { display: none; }
+  .timeline-hora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+  }
+  .timeline-contenido {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+  }
+  .timeline-item:nth-child(even) .timeline-hora { order: 2; }
+  .timeline-item:nth-child(even) .timeline-contenido { order: 1; }
+  .hora { font-size: 1.9rem; }
+  .timeline-gif { width: 73px; height: 70px; }
+  .timeline-contenido h3 { font-size: 1.5rem; }
+  .timeline-contenido p { font-size: 0.95rem; }
+}
+
+@media (max-width: 576px) {
+  .hora { font-size: 1.5rem; }
+  .timeline-gif { width: 68px; height: 65px; }
+  .timeline-contenido h3 { font-size: 1.3rem; }
+  .timeline-contenido p { font-size: 0.85rem; }
+  .timeline-item { margin-bottom: 7rem; }
+  .timeline-item::after { top: 0.9rem; }
+}
