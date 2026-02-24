@@ -122,6 +122,19 @@ body {
   color: var(--gris-oscuro);
 }
 
+/* ---- TÍTULOS DE SECCIÓN (GLOBAL) ---- */
+.section-title {
+  text-align: center;
+  font-family: var(--tipografia-titulo);
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-top: 60px;
+  margin-bottom: 3rem;
+  color: inherit;
+}
+
 /* ========== BOTÓN VOLVER ARRIBA ========== */
 .back-to-top {
   position: fixed;
@@ -767,7 +780,6 @@ body {
 /* ================================================== */
 /* ========== SECCIÓN LOS NOVIOS =================== */
 /* ================================================== */
-/* ========== SECCIÓN LOS NOVIOS ========== */
 .novios-section {
   background-color: var(--blanco);
   padding: 4rem 0;
@@ -777,12 +789,6 @@ body {
 .novios-section .container {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.novios-section .section-title {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2rem;
 }
 
 /* Bloque base - dos columnas */
@@ -907,12 +913,6 @@ body {
     gap: 3rem;
     align-items: center;
   }
-  .novios-section .section-title {
-    grid-column: 1 / -1;
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-  }
   .novios-titulo {
     font-size: 2.5rem;
   }
@@ -932,10 +932,6 @@ body {
 @media (max-width: 991px) {
   .novios-section {
     padding: 3rem 0;
-  }
-  .novios-section .section-title {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
   }
   .novios-titulo {
     font-size: 1.8rem;
@@ -957,10 +953,6 @@ body {
   .novios-section {
     padding: 2.5rem 0;
   }
-  .novios-section .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
   .novios-titulo {
     font-size: 2.2rem;
     padding: 0 12px;
@@ -980,10 +972,6 @@ body {
 @media (max-width: 576px) {
   .novios-section {
     padding: 2rem 1rem;
-  }
-  .novios-section .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
   }
   .novios-bloque {
     display: flex;
@@ -1020,7 +1008,7 @@ body {
   padding: 4rem 0;
 }
 
-/* Imágenes decorativas (opcionales, las dejamos como estaban) */
+/* Imágenes decorativas */
 .historia-section::after {
   content: "";
   position: absolute;
@@ -1096,19 +1084,19 @@ body {
   padding-bottom: 0.25rem;
 }
 
-/* Subtítulos (h3) - más grandes que párrafos pero más pequeños que título sección */
+/* Subtítulos (h3) */
 .historia-item h3 {
   font-family: var(--tipografia-titulo);
-  font-size: 1.5rem;          /* Intermedio */
+  font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 0.75rem;
   color: var(--gris-oscuro);
 }
 
-/* Párrafos - igual que .vestimenta-intro */
+/* Párrafos */
 .historia-item p {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;          /* base */
+  font-size: 1.3rem;
   font-weight: 300;
   font-style: italic;
   color: var(--gris-oscuro);
@@ -1142,7 +1130,7 @@ body {
   transform: scale(1);
 }
 
-/* ========== MEDIA QUERIES (MEMORIA VESTIMENTA) ========== */
+/* Media Queries */
 @media (max-width: 991px) {
   .historia-grid {
     grid-template-columns: 1fr;
@@ -1152,10 +1140,10 @@ body {
     max-width: 580px;
   }
   .historia-item h3 {
-    font-size: 1.4rem;        /* ajuste intermedio */
+    font-size: 1.4rem;
   }
   .historia-item p {
-    font-size: 1.1rem;        /* igual que vestimenta-intro */
+    font-size: 1.1rem;
   }
   .historia-section::after,
   .historia-section::before {
@@ -1170,7 +1158,7 @@ body {
     max-width: 480px;
   }
   .historia-item h3 {
-    font-size: 1.3rem;        /* un poco más pequeño */
+    font-size: 1.3rem;
   }
   .historia-item p {
     font-size: 1.1rem;
@@ -1228,12 +1216,7 @@ body {
   padding: 0 1rem;
 }
 
-.padrinos-section .section-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-/* Descripción (aplicando memoria de vestimenta) */
+/* Descripción */
 .padrinos-descripcion {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
@@ -1249,7 +1232,7 @@ body {
   opacity: 0.9;
 }
 
-/* Grid de 3 columnas fijas en todos los tamaños */
+/* Grid de 3 columnas fijas */
 .padrinos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1302,10 +1285,10 @@ body {
   display: block;
 }
 
-/* Nombre del padrino (aplicando memoria de vestimenta) */
+/* Nombre del padrino */
 .padrino-nombre {
   font-family: var(--tipografia-manuscrita);
-  font-size: 2rem; /* Base igual a vestimenta h3 */
+  font-size: 2rem;
   color: var(--gris-oscuro);
   margin-bottom: 0.5rem;
   line-height: 1.2;
@@ -1329,7 +1312,7 @@ body {
   transform: scale(1.2);
 }
 
-/* Imágenes decorativas (opcional, mantén las que ya tenías) */
+/* Imágenes decorativas */
 .padrino-decor {
   position: absolute;
   top: 0;
@@ -1366,13 +1349,13 @@ body {
   .padrino-decor.inferior-centro img { width: 150px; }
 }
 
-/* ========== MEDIA QUERIES (MEMORIA VESTIMENTA) ========== */
+/* Media Queries */
 @media (max-width: 991px) {
   .padrinos-descripcion {
-    font-size: 1.1rem; /* igual que vestimenta-intro en 991px */
+    font-size: 1.1rem;
   }
   .padrino-nombre {
-    font-size: 1.8rem; /* igual que vestimenta h3 en 991px */
+    font-size: 1.8rem;
   }
   .red-social {
     font-size: 1.2rem;
@@ -1384,10 +1367,10 @@ body {
 
 @media (max-width: 768px) {
   .padrinos-descripcion {
-    font-size: 1.1rem; /* se mantiene */
+    font-size: 1.1rem;
   }
   .padrino-nombre {
-    font-size: 2.2rem; /* igual que vestimenta h3 en 768px */
+    font-size: 2.2rem;
   }
   .red-social {
     font-size: 1.1rem;
@@ -1405,7 +1388,7 @@ body {
     font-size: 1.1rem;
   }
   .padrino-nombre {
-    font-size: 1.9rem; /* igual que vestimenta h3 en 576px */
+    font-size: 1.9rem;
   }
   .red-social {
     font-size: 1rem;
@@ -1421,7 +1404,6 @@ body {
   }
 }
 
-/* Ajuste para pantallas muy pequeñas: las 3 columnas se mantienen */
 @media (max-width: 480px) {
   .padrinos-grid {
     gap: 0.5rem;
@@ -1468,12 +1450,10 @@ body {
   z-index: 2;
 }
 
+/* Título de ceremonia: solo color y sombra, lo demás de la global */
 .ceremonia-section .section-title {
   color: var(--blanco);
-  margin-bottom: 2.5rem;
   text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  font-weight: 300;
-  letter-spacing: 6px;
 }
 
 .ceremonia-fecha-mobile {
@@ -1553,10 +1533,9 @@ body {
   transform: scale(1.05);
 }
 
-/* ---- NOMBRES DE LUGAR (ajustado más pequeño) ---- */
 .lugar-nombre {
   font-family: var(--tipografia-manuscrita);
-  font-size: 1.8rem; /* Antes 2.2rem */
+  font-size: 1.8rem;
   font-weight: 400;
   color: var(--blanco);
   margin-bottom: 0.5rem;
@@ -1596,7 +1575,7 @@ body {
   border-color: #c1a57b;
 }
 
-/* ========== MEDIA QUERIES ========== */
+/* Media Queries */
 @media (max-width: 991px) {
   .ceremonia-grid { gap: 2rem; }
   .ceremonia-card { max-width: 500px; padding: 1.5rem 1rem; }
@@ -1604,7 +1583,7 @@ body {
   .dia-mes { font-size: 2.7rem; }
   .anio { font-size: 2.5rem; letter-spacing: 5px; }
   .icono-ceremonia { width: 90px; }
-  .lugar-nombre { font-size: 1.6rem; } /* Ajustado */
+  .lugar-nombre { font-size: 1.6rem; }
   .lugar-hora { font-size: 1.4rem; }
   .btn-como-llegar { padding: 0.6rem 1.5rem; font-size: 1rem; }
 }
@@ -1616,13 +1595,13 @@ body {
   .dia-mes { font-size: 1.9rem; }
   .anio { font-size: 1.9rem; letter-spacing: 4px; }
   .icono-ceremonia { width: 100px; }
-  .lugar-nombre { font-size: 1.5rem; } /* Ajustado */
+  .lugar-nombre { font-size: 1.5rem; }
   .lugar-hora { font-size: 1.4rem; }
   .btn-como-llegar { padding: 0.5rem 1.2rem; font-size: 1.2rem; }
 }
 
 @media (max-width: 576px) {
-  .lugar-nombre { font-size: 1.3rem; } /* Ajustado para móvil */
+  .lugar-nombre { font-size: 1.3rem; }
 }
 
 /* ========== ITINERARIO ========== */
@@ -1630,36 +1609,32 @@ body {
   background-color: var(--blanco);
   padding: 4rem 0;
   overflow: hidden;
-}
-/* ===== IMÁGENES DECORATIVAS EN ITINERARIO ===== */
-.itinerario-section {
-  position: relative; /* Necesario para posicionar las imágenes */
+  position: relative;
 }
 
-/* Imagen superior izquierda */
+/* Imágenes decorativas */
 .itinerario-section::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 150px;           /* 🌟 TAMAÑO EN ESCRITORIO (ajusta aquí) */
-  height: 150px;          /* 🌟 TAMAÑO EN ESCRITORIO */
+  width: 150px;
+  height: 150px;
   background-image: url('imagenes/flor04.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top left;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.6;           /* 🌟 OPACIDAD EN ESCRITORIO */
+  opacity: 0.6;
 }
 
-/* Imagen inferior derecha */
 .itinerario-section::after {
   content: "";
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 150px;           /* 🌟 TAMAÑO EN ESCRITORIO */
+  width: 150px;
   height: 150px;
   background-image: url('imagenes/Recurso2.png');
   background-size: contain;
@@ -1667,42 +1642,7 @@ body {
   background-position: bottom right;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.6;           /* 🌟 OPACIDAD EN ESCRITORIO */
-}
-
-/* ========== RESPONSIVE ========== */
-/* 📱 Tablet (max-width: 992px) */
-@media (max-width: 992px) {
-  .itinerario-section::before,
-  .itinerario-section::after {
-    width: 120px;
-    height: 120px;
-    opacity: 0.5;
-  }
-}
-
-/* 📱 Móvil grande (max-width: 768px) */
-@media (max-width: 768px) {
-  .itinerario-section::before,
-  .itinerario-section::after {
-    width: 100px;
-    height: 100px;
-    opacity: 0.4;
-  }
-}
-
-/* 📱 Móvil pequeño (max-width: 576px) */
-@media (max-width: 576px) {
-  .itinerario-section::before,
-  .itinerario-section::after {
-    width: 140px;
-    height: 140px;
-    opacity: 0.3;
-  }
-}
-
-.itinerario-section .section-title {
-  text-align: center;
+  opacity: 0.6;
 }
 
 .itinerario-subtitulo {
@@ -1847,6 +1787,16 @@ body {
   margin-top: 0.2rem;
 }
 
+/* Media Queries Itinerario */
+@media (max-width: 992px) {
+  .itinerario-section::before,
+  .itinerario-section::after {
+    width: 120px;
+    height: 120px;
+    opacity: 0.5;
+  }
+}
+
 @media (max-width: 991px) {
   .itinerario-layout { grid-template-columns: 1fr; }
   .timeline-columna { justify-self: center; max-width: 100%; }
@@ -1854,6 +1804,12 @@ body {
 }
 
 @media (max-width: 768px) {
+  .itinerario-section::before,
+  .itinerario-section::after {
+    width: 100px;
+    height: 100px;
+    opacity: 0.4;
+  }
   .timeline::before { left: 50% !important; transform: translateX(-50%); width: 2px; }
   .timeline-item {
     display: grid;
@@ -1899,6 +1855,12 @@ body {
 }
 
 @media (max-width: 576px) {
+  .itinerario-section::before,
+  .itinerario-section::after {
+    width: 140px;
+    height: 140px;
+    opacity: 0.3;
+  }
   .hora { font-size: 1.5rem; }
   .timeline-gif { width: 68px; height: 65px; }
   .timeline-contenido h3 { font-size: 1.3rem; }
@@ -2072,7 +2034,7 @@ body {
   margin-bottom: 0;
 }
 
-/* Media Queries Vestimenta (memoria) */
+/* Media Queries Vestimenta */
 @media (max-width: 991px) {
   .superior-izquierda { width: 130px; opacity: 0.5; }
   .superior-centro { width: 150px; opacity: 0.45; }
@@ -2483,9 +2445,9 @@ body {
   z-index: 2;
 }
 
+/* Título de wedshoots: solo color blanco */
 .wedshoots-section .section-title {
   color: var(--blanco);
-  margin-bottom: 1rem;
 }
 
 .wedshoots-subtitulo {
@@ -2772,12 +2734,6 @@ body {
   opacity: 1;
 }
 
-@keyframes flotar {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
 /* Imagen decorativa inferior */
 .frase-imagen-inferior {
   position: absolute;
@@ -2823,17 +2779,17 @@ body {
 
 /* ========== FOOTER MINIMALISTA ========== */
 .footer-minimalista {
-  background-color: #f5ebe0; /* Café claro suave */
-  color: #5e4b3c; /* Café medio oscuro */
+  background-color: #f5ebe0;
+  color: #5e4b3c;
   padding: 3rem 0 2rem;
-  font-family: var(--tipografia-titulo); /* Montserrat */
+  font-family: var(--tipografia-titulo);
   text-align: center;
 }
 
 .footer-linea {
   width: 80px;
   height: 2px;
-  background-color: #d4c5b5; /* Línea decorativa */
+  background-color: #d4c5b5;
   margin: 0 auto 2rem;
 }
 
@@ -2843,7 +2799,7 @@ body {
 }
 
 .footer-nombres {
-  font-family: var(--tipografia-manuscrita-brand); /* Allura */
+  font-family: var(--tipografia-manuscrita-brand);
   font-size: 2.5rem;
   color: #5e4b3c;
   margin-bottom: 0.5rem;
@@ -2852,16 +2808,16 @@ body {
 }
 
 .footer-fecha {
-  font-family: var(--tipografia-fecha); /* Cormorant Garamond */
+  font-family: var(--tipografia-fecha);
   font-size: 1.2rem;
-  color: #8b7a66; /* Café más claro */
+  color: #8b7a66;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 1.5rem;
 }
 
 .footer-frase {
-  font-family: var(--tipografia-manuscrita); /* DancingScript */
+  font-family: var(--tipografia-manuscrita);
   font-size: 1.4rem;
   color: #5e4b3c;
   font-style: italic;
@@ -2883,7 +2839,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #e5d5c5; /* Fondo suave */
+  background-color: #e5d5c5;
   color: #5e4b3c;
   font-size: 1.2rem;
   transition: all 0.3s ease;
@@ -2926,7 +2882,7 @@ body {
   border-bottom: 1px solid #5e4b3c;
 }
 
-/* Responsive */
+/* Responsive Footer */
 @media (max-width: 768px) {
   .footer-nombres {
     font-size: 2rem;
@@ -2952,7 +2908,7 @@ body {
     gap: 0.2rem;
   }
   .footer-credito-separador {
-    display: none; /* Oculta el separador en móvil */
+    display: none;
   }
 }
 
