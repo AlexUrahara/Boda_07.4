@@ -387,6 +387,14 @@ function initTimelineObserver() {
   const items = document.querySelectorAll('.timeline-item');
   if (!items.length) return;
 
+  // Verificar visibilidad inicial
+  items.forEach(item => {
+    const rect = item.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      item.classList.add('visible');
+    }
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -395,7 +403,10 @@ function initTimelineObserver() {
         entry.target.classList.remove('visible');
       }
     });
-  }, { threshold: 0.9, rootMargin: '0px 0px 0px 0px' });
+  }, {
+    threshold: 0.3,          // Antes era 0.9, ahora más bajo
+    rootMargin: '50px'
+  });
 
   items.forEach(item => observer.observe(item));
 }
@@ -481,29 +492,28 @@ function initNoviosObserver() {
   const bloques = document.querySelectorAll('.novios-bloque');
   if (!bloques.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        // Si quieres que se oculten al salir, mantén esta línea
-        entry.target.classList.remove('visible');
-      }
-    });
-  }, { 
-    threshold: 0.2,        // Se activa cuando el 20% del bloque es visible
-    rootMargin: '50px'      // Se activa 50px antes de llegar
-  });
-
-  bloques.forEach(bloque => observer.observe(bloque));
-
-  // Verificar si algún bloque ya es visible al cargar la página
+  // Verificar visibilidad inicial
   bloques.forEach(bloque => {
     const rect = bloque.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       bloque.classList.add('visible');
     }
   });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '50px'
+  });
+
+  bloques.forEach(bloque => observer.observe(bloque));
 }
 
 // ---------- OBSERVADOR PARA SECCIÓN PADRINOS ----------
@@ -511,15 +521,26 @@ function initPadrinosObserver() {
   const padrinosCards = document.querySelectorAll('.padrino-card');
   if (!padrinosCards.length) return;
 
+  // Verificar visibilidad inicial
+  padrinosCards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      card.classList.add('visible');
+    }
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       } else {
         entry.target.classList.remove('visible');
-      }  
+      }
     });
-  }, { threshold: 0.3, rootMargin: '0px' });
+  }, {
+    threshold: 0.2,
+    rootMargin: '50px'
+  });
 
   padrinosCards.forEach(card => observer.observe(card));
 }
