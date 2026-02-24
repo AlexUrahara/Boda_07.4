@@ -479,23 +479,31 @@ function initRSVPForm() {
 // ---------- OBSERVADOR PARA SECCIÓN NOVIOS ----------
 function initNoviosObserver() {
   const bloques = document.querySelectorAll('.novios-bloque');
-  if (!bloques.length) {
-    console.log('No se encontraron bloques de novios');
-    return;
-  }
+  if (!bloques.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        console.log('Clase visible añadida a', entry.target); // Para depurar
       } else {
+        // Si quieres que se oculten al salir, mantén esta línea
         entry.target.classList.remove('visible');
       }
     });
-  }, { threshold: 0.2, rootMargin: '50px' }); // Se activa un poco antes
+  }, { 
+    threshold: 0.2,        // Se activa cuando el 20% del bloque es visible
+    rootMargin: '50px'      // Se activa 50px antes de llegar
+  });
 
   bloques.forEach(bloque => observer.observe(bloque));
+
+  // Verificar si algún bloque ya es visible al cargar la página
+  bloques.forEach(bloque => {
+    const rect = bloque.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      bloque.classList.add('visible');
+    }
+  });
 }
 
 // ---------- OBSERVADOR PARA SECCIÓN PADRINOS ----------

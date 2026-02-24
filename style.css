@@ -857,7 +857,7 @@ body {
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
 
-/* --- EFECTOS DE ENTRADA (se activan con la clase "visible" en el bloque) --- */
+/* --- EFECTOS DE ENTRADA --- */
 .novia-contenido,
 .novia-imagen,
 .novio-contenido,
@@ -1007,5 +1007,207 @@ body {
   }
   .novios-img {
     max-height: 210px;
+  }
+}
+
+/* ================================================== */
+/* ========== NUESTRA HISTORIA ========== */
+/* ================================================== */
+.historia-section {
+  background-color: var(--blanco);
+  overflow: hidden;
+  position: relative;
+  padding: 4rem 0;
+}
+
+/* Imágenes decorativas (opcionales, las dejamos como estaban) */
+.historia-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 180px;
+  background-image: url('imagenes/flor03.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.historia-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  background-image: url('imagenes/lineas01.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
+  pointer-events: none;
+  z-index: 1;
+  margin-top: -1px;
+}
+
+.historia-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  text-align: left;
+}
+
+.historia-contenido {
+  text-align: left;
+}
+
+.historia-item {
+  margin-bottom: 0;
+  padding: 1.5rem 0;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transition: transform 0.3s ease;
+}
+
+.historia-item:hover {
+  transform: translateY(-5px);
+}
+
+.historia-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--amarillo-mostaza);
+  margin: 0.5rem 0 1.5rem 0;
+  opacity: 0.5;
+}
+
+.historia-fecha {
+  display: inline-block;
+  font-family: var(--tipografia-manuscrita);
+  font-size: 1.2rem;
+  color: var(--amarillo-mostaza);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--amarillo-mostaza);
+  padding-bottom: 0.25rem;
+}
+
+/* Subtítulos (h3) - más grandes que párrafos pero más pequeños que título sección */
+.historia-item h3 {
+  font-family: var(--tipografia-titulo);
+  font-size: 1.5rem;          /* Intermedio */
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  color: var(--gris-oscuro);
+}
+
+/* Párrafos - igual que .vestimenta-intro */
+.historia-item p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;          /* base */
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gris-oscuro);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 0 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.historia-imagen-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.historia-imagen {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.historia-imagen.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ========== MEDIA QUERIES (MEMORIA VESTIMENTA) ========== */
+@media (max-width: 991px) {
+  .historia-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .historia-imagen {
+    max-width: 580px;
+  }
+  .historia-item h3 {
+    font-size: 1.4rem;        /* ajuste intermedio */
+  }
+  .historia-item p {
+    font-size: 1.1rem;        /* igual que vestimenta-intro */
+  }
+  .historia-section::after,
+  .historia-section::before {
+    width: 140px;
+    height: 140px;
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 768px) {
+  .historia-imagen {
+    max-width: 480px;
+  }
+  .historia-item h3 {
+    font-size: 1.3rem;        /* un poco más pequeño */
+  }
+  .historia-item p {
+    font-size: 1.1rem;
+  }
+  .historia-divider {
+    width: 50px;
+  }
+  .historia-section::after,
+  .historia-section::before {
+    width: 120px;
+    height: 120px;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 576px) {
+  .historia-imagen {
+    max-width: 400px;
+  }
+  .historia-item h3 {
+    font-size: 1.2rem;
+  }
+  .historia-item p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  .historia-divider {
+    width: 40px;
+    margin-left: 20px;
+  }
+  .historia-item {
+    padding: 1rem 0;
+  }
+  .historia-section::after,
+  .historia-section::before {
+    width: 100px;
+    height: 100px;
+    opacity: 0.25;
   }
 }
