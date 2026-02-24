@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navbar.classList.remove('bg-white');
     }
   }
-
+ 
   function toggleBackToTop() {
     if (window.scrollY > 300) {
       backToTop.classList.add('visible');
@@ -510,3 +510,4 @@ function initPadrinosObserver() {
 
   padrinosCards.forEach(card => observer.observe(card));
 }}
+

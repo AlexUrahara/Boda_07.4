@@ -17,7 +17,7 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-}
+} 
 @font-face {
   font-family: 'DancingScript';
   src: url('tipografias/DancingScript-VariableFont_wght.woff2') format('woff2'),
@@ -487,7 +487,9 @@ body {
   60% { transform: translateX(-50%) translateY(-5px); }
 }
 
-/* ========== CONTADOR REGRESIVO ========== */
+/* ====================================================================================================================================*/
+/* ======================================== CONTADOR REGRESIVO ================================================== */
+/* ====================================================================================================================================*/
 .contador-section {
   position: relative;
   background-color: #f5f5f5;
@@ -912,3 +914,254 @@ body {
     padding: 1rem 0;
   }
 }
+
+/* ====================================================================================================================================*/
+/* ================================================== SECCIÓN LOS NOVIOS================================================== ========== */
+/* ====================================================================================================================================*/
+.novios-section {
+  background-color: var(--blanco);
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.novios-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.novios-section .section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+/* Bloque base (escritorio) - dos columnas */
+.novios-bloque {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.novios-bloque:last-child {
+  margin-bottom: 0;
+}
+
+.novia-contenido,
+.novio-contenido {
+  flex: 1;
+  text-align: left;
+}
+
+.novia-imagen,
+.novio-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Orden: novia imagen a la derecha, novio imagen a la izquierda */
+.novia .novia-imagen {
+  order: 2;
+}
+.novia .novia-contenido {
+  order: 1;
+}
+.novio .novio-imagen {
+  order: 1;
+}
+.novio .novio-contenido {
+  order: 2;
+}
+
+/* Títulos de novios (aplicando memoria de vestimenta) */
+.novios-titulo {
+  font-family: var(--tipografia-manuscrita);
+  font-size: 2rem;           /* base = vestimenta h3 base */
+  color: var(--amarillo-mostaza);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+/* Descripciones (aplicando memoria de vestimenta) */
+.novios-descripcion {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;          /* base = vestimenta-intro base */
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gris-oscuro);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Imágenes de novios */
+.novios-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+/* Efectos de entrada (scroll) */
+.novia-contenido,
+.novia-imagen,
+.novio-contenido,
+.novio-imagen {
+  transition: transform 1s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 1s ease;
+  opacity: 0;
+}
+.novia-contenido { transform: translateX(-30px); }
+.novia-imagen { transform: translateX(30px); }
+.novio-contenido { transform: translateX(30px); }
+.novio-imagen { transform: translateX(-30px); }
+
+.novia.visible .novia-contenido,
+.novia.visible .novia-imagen,
+.novio.visible .novio-contenido,
+.novio.visible .novio-imagen {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@keyframes flotarNovios {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+.novia.visible .novios-img,
+.novio.visible .novios-img {
+  animation: flotarNovios 4s ease-in-out infinite;
+}
+
+/* ========== MEDIA QUERIES (MEMORIA VESTIMENTA) ========== */
+@media (min-width: 992px) {
+  .novios-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .novios-section .section-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  .novios-titulo {
+    font-size: 2.5rem;        /* vestimenta h3 base no llega a este tamaño, lo dejo como estabas */
+  }
+  .novios-descripcion {
+    font-size: 1.3rem;
+  }
+  .novios-img {
+    max-height: 340px;
+  }
+  .novios-bloque {
+    gap: 1rem;
+    margin-bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .novios-section {
+    padding: 3rem 0;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .novios-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .novios-titulo {
+    font-size: 1.8rem;        /* = vestimenta h3 a 991px */
+    padding: 0 12px;
+  }
+  .novios-descripcion {
+    font-size: 1.1rem;        /* = vestimenta-intro a 991px */
+    padding: 0 12px;
+  }
+  .novios-img {
+    max-height: 270px;
+  }
+  .novios-bloque {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .novios-section {
+    padding: 2.5rem 0;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .novios-section .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .novios-titulo {
+    font-size: 2.2rem;        /* = vestimenta h3 a 768px */
+    padding: 0 12px;
+  }
+  .novios-descripcion {
+    font-size: 1.1rem;        /* = vestimenta-intro a 768px (hereda) */
+    padding: 0 12px;
+  }
+  .novios-img {
+    max-height: 250px;
+  }
+  .novios-bloque {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .novios-section {
+    padding: 2rem 1rem;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .novios-section .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  /* Dos columnas forzadas */
+  .novios-bloque {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .novia-contenido,
+  .novio-contenido,
+  .novia-imagen,
+  .novio-imagen {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .novios-titulo {
+    font-size: 1.9rem;        /* = vestimenta h3 a 576px */
+  }
+  .novios-descripcion {
+    font-size: 1.1rem;        /* = vestimenta-intro a 576px (hereda) */
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+  .novios-img {
+    max-height: 210px;
+  }
+}
+
+/* ====================================================================================================================================*/
+
+/* ====================================================================================================================================*/
