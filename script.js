@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navbar.classList.remove('bg-white');
     }
   }
- 
+
   function toggleBackToTop() {
     if (window.scrollY > 300) {
       backToTop.classList.add('visible');
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initRSVPForm();
 
   // ----- OBSERVADOR PARA SECCIÓN NOVIOS -----
-  initNoviosObserver();
+  initNoviosObserver();   // <--- ESTA LÍNEA ES LA QUE FALTABA
 
   // ----- OBSERVADOR PARA SECCIÓN PADRINOS -----
   initPadrinosObserver();
@@ -305,6 +305,7 @@ function initMusica() {
 //   document.addEventListener('click', startOnInteraction, { once: true });
 //   document.addEventListener('touchstart', startOnInteraction, { once: true });
 // });
+}
 
 // ---------- LIGHTBOX PARA VESTIMENTA ----------
 function initLightbox() {
@@ -478,17 +479,21 @@ function initRSVPForm() {
 // ---------- OBSERVADOR PARA SECCIÓN NOVIOS ----------
 function initNoviosObserver() {
   const bloques = document.querySelectorAll('.novios-bloque');
-  if (!bloques.length) return;
+  if (!bloques.length) {
+    console.log('No se encontraron bloques de novios');
+    return;
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        console.log('Clase visible añadida a', entry.target); // Para depurar
       } else {
         entry.target.classList.remove('visible');
       }
     });
-  }, { threshold: 0.3, rootMargin: '0px' });
+  }, { threshold: 0.2, rootMargin: '50px' }); // Se activa un poco antes
 
   bloques.forEach(bloque => observer.observe(bloque));
 }
@@ -504,10 +509,9 @@ function initPadrinosObserver() {
         entry.target.classList.add('visible');
       } else {
         entry.target.classList.remove('visible');
-      }
+      }  
     });
   }, { threshold: 0.3, rootMargin: '0px' });
 
   padrinosCards.forEach(card => observer.observe(card));
-}}
-
+}
