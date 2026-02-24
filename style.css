@@ -1436,3 +1436,191 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* ========== CEREMONIA ========== */
+.ceremonia-section {
+  position: relative;
+  background-image: url('imagenes/ceremonia.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 0;
+  color: var(--blanco);
+  text-align: center;
+  padding-bottom: 110px;
+}
+
+.ceremonia-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ceremonia-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.ceremonia-section .section-title {
+  color: var(--blanco);
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-weight: 300;
+  letter-spacing: 6px;
+}
+
+.ceremonia-fecha-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--blanco);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.dia-semana {
+  font-size: 1.2rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.dia-mes {
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  letter-spacing: 2px;
+}
+
+.anio {
+  font-size: 1.6rem;
+  font-weight: 300;
+  opacity: 0.9;
+  letter-spacing: 6px;
+}
+
+.ceremonia-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.ceremonia-card {
+  flex: 1 1 300px;
+  max-width: 400px;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: transform 0.3s ease;
+}
+
+.ceremonia-card:hover {
+  transform: translateY(-6px);
+}
+
+.icono-wrapper {
+  margin-bottom: 1.2rem;
+}
+
+.icono-ceremonia {
+  width: 100px;
+  height: auto;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.ceremonia-card:hover .icono-ceremonia {
+  transform: scale(1.05);
+}
+
+/* ---- NOMBRES DE LUGAR (ajustado más pequeño) ---- */
+.lugar-nombre {
+  font-family: var(--tipografia-manuscrita);
+  font-size: 1.8rem; /* Antes 2.2rem */
+  font-weight: 400;
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.lugar-hora {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--blanco);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  letter-spacing: 1px;
+}
+
+.btn-como-llegar {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background-color: transparent;
+  border: 2px solid #c1a57b;
+  color: #c1a57b;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.btn-como-llegar:hover {
+  background-color: #c1a57b;
+  color: var(--blanco);
+  border-color: #c1a57b;
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 991px) {
+  .ceremonia-grid { gap: 2rem; }
+  .ceremonia-card { max-width: 500px; padding: 1.5rem 1rem; }
+  .dia-semana { font-size: 1.9rem; letter-spacing: 6px; }
+  .dia-mes { font-size: 2.7rem; }
+  .anio { font-size: 2.5rem; letter-spacing: 5px; }
+  .icono-ceremonia { width: 90px; }
+  .lugar-nombre { font-size: 1.6rem; } /* Ajustado */
+  .lugar-hora { font-size: 1.4rem; }
+  .btn-como-llegar { padding: 0.6rem 1.5rem; font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .ceremonia-section { padding: 3rem 0; }
+  .ceremonia-fecha-mobile { margin-bottom: 2rem; }
+  .dia-semana { font-size: 1.3rem; letter-spacing: 4px; }
+  .dia-mes { font-size: 1.9rem; }
+  .anio { font-size: 1.9rem; letter-spacing: 4px; }
+  .icono-ceremonia { width: 100px; }
+  .lugar-nombre { font-size: 1.5rem; } /* Ajustado */
+  .lugar-hora { font-size: 1.4rem; }
+  .btn-como-llegar { padding: 0.5rem 1.2rem; font-size: 1.2rem; }
+}
+
+@media (max-width: 576px) {
+  .lugar-nombre { font-size: 1.3rem; } /* Ajustado para móvil */
+}
