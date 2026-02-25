@@ -305,6 +305,23 @@ function initMusica() {
 //   document.addEventListener('click', startOnInteraction, { once: true });
 //   document.addEventListener('touchstart', startOnInteraction, { once: true });
 // });
+
+ audio.play().then(() => {
+   isPlaying = true;
+   icon.className = 'bi bi-pause-circle';
+ }).catch(() => {
+   console.log('Autoplay bloqueado, esperando interacción del usuario');
+   const startOnInteraction = () => {
+     audio.play().then(() => {
+       isPlaying = true;
+       icon.className = 'bi bi-pause-circle';
+     }).catch(e => console.log('Error al reproducir:', e));
+     document.removeEventListener('click', startOnInteraction);
+     document.removeEventListener('touchstart', startOnInteraction);
+   };
+   document.addEventListener('click', startOnInteraction, { once: true });
+   document.addEventListener('touchstart', startOnInteraction, { once: true });
+ });
 }
 
 // ---------- LIGHTBOX PARA VESTIMENTA ----------
