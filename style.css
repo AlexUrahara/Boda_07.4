@@ -2492,7 +2492,7 @@ body {
   }
 
   .rsvp-imagen-superior img {
-    width: 300px;
+    width:500px;
   }
 
   .rsvp-imagen-inferior img {
@@ -2511,12 +2511,12 @@ body {
 
 @media (max-width: 768px) {
   .rsvp-imagen-superior {
-    top: -50px;
+    top: -40px;
   }
 
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 280px;
+    width: 580px;
   }
 
   .rsvp-section {
@@ -2532,7 +2532,7 @@ body {
 
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 250px;
+    width: 550px;
   }
 
   .rsvp-section {
@@ -3062,5 +3062,51 @@ body {
   }
   .footer-frase {
     font-size: 1.1rem;
+  }
+}
+/* ========== BOTÓN FLOTANTE DE MÚSICA (SOLO CONTORNO) ========== */
+.music-float-btn {
+  position: fixed;
+  bottom: 90px;          /* Justo encima del botón de volver arriba */
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;   /* Fondo transparente */
+  color: var(--amarillo-mostaza);   /* Color del icono */
+  border: 2px solid var(--amarillo-mostaza);  /* Borde sólido */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 1031;          /* Por encima del back-to-top (1030) */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.music-float-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.music-float-btn:hover {
+  background-color: var(--amarillo-mostaza);  /* Fondo al hacer hover */
+  color: var(--blanco);                        /* Icono blanco */
+  border-color: var(--amarillo-mostaza);
+  transform: translateY(-5px);
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 576px) {
+  .music-float-btn {
+    bottom: 90px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    border-width: 2px;    /* Mantiene el borde visible */
   }
 }

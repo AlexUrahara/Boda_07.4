@@ -20,13 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function toggleBackToTop() {
-    if (window.scrollY > 300) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
+function toggleBackToTop() {
+  if (window.scrollY > 300) {
+    backToTop.classList.add('visible');
+    // También mostrar el botón de música
+    const musicBtn = document.getElementById('musicFloatBtn');
+    if (musicBtn) musicBtn.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+    const musicBtn = document.getElementById('musicFloatBtn');
+    if (musicBtn) musicBtn.classList.remove('visible');
   }
+}
 
   // Estado inicial
   navbar.classList.add('bg-transparent');
@@ -200,6 +205,9 @@ function initMusica() {
   const barraProgreso = document.getElementById('musicaBarra');
   const progresoDiv = document.getElementById('musicaProgreso');
 
+   const musicFloatBtn = document.getElementById('musicFloatBtn');
+  const floatIcon = musicFloatBtn ? musicFloatBtn.querySelector('i') : null;
+
   function formatTime(seconds) {
     if (isNaN(seconds)) return '0:00';
     const mins = Math.floor(seconds / 60);
@@ -229,15 +237,17 @@ function initMusica() {
   audio.addEventListener('ended', nextSong);
 
   function togglePlay() {
-    if (isPlaying) {
-      audio.pause();
-      icon.className = 'bi bi-play-circle';
-    } else {
-      audio.play().catch(e => console.log('Error al reproducir:', e));
-      icon.className = 'bi bi-pause-circle';
-    }
-    isPlaying = !isPlaying;
+  if (isPlaying) {
+    audio.pause();
+    icon.className = 'bi bi-play-circle';               // Reproductor principal
+    if (floatIcon) floatIcon.className = 'bi bi-play-circle'; // Botón flotante
+  } else {
+    audio.play().catch(e => console.log('Error al reproducir:', e));
+    icon.className = 'bi bi-pause-circle';
+    if (floatIcon) floatIcon.className = 'bi bi-pause-circle';
   }
+  isPlaying = !isPlaying;
+}
 
   function nextSong() {
     currentIndex = (currentIndex + 1) % playlist.length;
@@ -276,6 +286,11 @@ function initMusica() {
   playPauseBtn.addEventListener('click', togglePlay);
   nextBtn.addEventListener('click', nextSong);
   prevBtn.addEventListener('click', prevSong);
+
+   // ---------- NUEVO: Evento para el botón flotante ----------
+  if (musicFloatBtn) {
+    musicFloatBtn.addEventListener('click', togglePlay);
+  }
 
   document.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && !e.target.matches('input, textarea, button')) {
