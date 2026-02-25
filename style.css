@@ -94,9 +94,10 @@ src: url('tipografias/Allura-Regular.woff2') format('woff2'),
 /* ========== VARIABLES ========== */
 :root {
   --blanco: #ffffff;
-  --negro: #000000;
+  --negro: #0a0a0a;
   --gris-claro: #f9f7f5;
-  --gris-oscuro: #797979;
+  --gris-oscuro: #858585;
+  --gris-oscuro2:rgb(78, 78, 78)5;
   --rosa-palo: #f8e1e1;
   --rosa-palo2: #fff9f9;
   --amarillo-elegante: #eab308;
@@ -126,6 +127,7 @@ body {
 .section-title {
   text-align: center;
   font-family: var(--tipografia-titulo);
+  color: var(--gris-oscuro2);
   font-weight: 300;
   letter-spacing: 4px;
   text-transform: uppercase;
