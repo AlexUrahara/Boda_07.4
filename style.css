@@ -1138,7 +1138,7 @@ body {
     gap: 2rem;
   }
   .historia-imagen {
-    max-width: 580px;
+    max-width: 620px;
   }
   .historia-item h3 {
     font-size: 1.4rem;
@@ -1156,13 +1156,13 @@ body {
 
 @media (max-width: 768px) {
   .historia-imagen {
-    max-width: 480px;
+    max-width: 520px;
   }
   .historia-item h3 {
     font-size: 1.3rem;
   }
   .historia-item p {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .historia-divider {
     width: 50px;
@@ -1177,13 +1177,13 @@ body {
 
 @media (max-width: 576px) {
   .historia-imagen {
-    max-width: 400px;
+    max-width: 450px;
   }
   .historia-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .historia-item p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
   }
   .historia-divider {
