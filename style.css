@@ -2195,7 +2195,7 @@ body {
   background-color: #f8f1e6;
   padding: 4rem 0;
   text-align: center;
-  overflow: hidden;
+  overflow: visible; /* CAMBIADO: antes era hidden, ahora visible para no recortar la imagen de RSVP */
 }
 
 .mesa-subtitulo {
@@ -2206,6 +2206,7 @@ body {
   color: var(--gris-oscuro);
   max-width: 700px;
   margin: 0 auto 3rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
   padding-bottom: 1.5rem;
 }
 
@@ -2284,7 +2285,7 @@ body {
   border-color: #8B7355;
 }
 
-/* Imagen decorativa inferior */
+/* Imagen decorativa inferior (solo responsive) */
 .mesa-imagen-inferior {
   position: absolute;
   bottom: 0;
@@ -2304,10 +2305,6 @@ body {
 @media (max-width: 991px) {
   .mesa-imagen-inferior {
     display: block;
-    
-  }
-  .mesa-imagen-inferior img {
-    width: 300px;
   }
   .mesa-regalos-section {
     padding-bottom: calc(4rem + 150px);
@@ -2319,7 +2316,7 @@ body {
 
 @media (max-width: 768px) {
   .mesa-imagen-inferior img {
-    width: 300px;
+    width: 130px;
   }
   .mesa-regalos-section {
     padding-bottom: calc(4rem + 130px);
@@ -2341,7 +2338,7 @@ body {
     font-size: 0.8rem;
   }
   .mesa-imagen-inferior img {
-    width: 300px;
+    width: 110px;
   }
   .mesa-regalos-section {
     padding-bottom: calc(3rem + 110px);
@@ -2354,7 +2351,8 @@ body {
   background-color: var(--blanco);
   padding: 4rem 0;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;      /* Aseguramos que no recorte la imagen superior */
+  z-index: 10;             /* Por encima de la sección anterior */
 }
 
 .rsvp-subtitulo {
@@ -2365,6 +2363,7 @@ body {
   color: var(--gris-oscuro);
   max-width: 600px;
   margin: 0 auto 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
   padding-bottom: 1.5rem;
 }
 
@@ -2460,14 +2459,15 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 15;            /* Por encima del contenido de la sección anterior */
   pointer-events: none;
   display: none;
 }
 
 .rsvp-imagen-superior {
-  top: 0;
+  top: 0;                  /* Se ajustará con top negativo en responsive */
 }
+
 .rsvp-imagen-inferior {
   bottom: 0;
 }
@@ -2480,63 +2480,85 @@ body {
   height: auto;
 }
 
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
   .rsvp-imagen-superior,
   .rsvp-imagen-inferior {
     display: block;
   }
+
+  .rsvp-imagen-superior {
+    top: -60px;            /* Sobresale hacia arriba */
+  }
+
   .rsvp-imagen-superior img {
     width: 300px;
   }
+
   .rsvp-imagen-inferior img {
     width: 300px;
   }
+
   .rsvp-section {
-    padding-top: calc(4rem + 120px);
-    padding-bottom: calc(4rem + 120px);
+    padding-top: calc(4rem + 80px);   /* 4rem (padding original) + espacio para la imagen */
+    padding-bottom: calc(4rem + 60px);
   }
+
   .rsvp-subtitulo {
     font-size: 1.1rem;
   }
 }
 
 @media (max-width: 768px) {
+  .rsvp-imagen-superior {
+    top: -50px;
+  }
+
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 350px;
+    width: 280px;
   }
+
   .rsvp-section {
-    padding-top: calc(4rem + 100px);
-    padding-bottom: calc(4rem + 100px);
+    padding-top: calc(4rem + 70px);
+    padding-bottom: calc(4rem + 50px);
   }
 }
 
 @media (max-width: 576px) {
+  .rsvp-imagen-superior {
+    top: -40px;            /* Ajusta este valor según necesites */
+  }
+
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 300px;
+    width: 250px;
   }
+
   .rsvp-section {
-    padding-top: calc(3rem + 80px);
-    padding-bottom: calc(3rem + 80px);
+    padding-top: calc(3rem + 60px);   /* 3rem + espacio */
+    padding-bottom: calc(3rem + 40px);
   }
+
   .rsvp-form {
     max-width: 100%;
   }
+
   .form-group input,
   .form-group select {
     padding: 0.7rem;
     font-size: 0.95rem;
   }
+
   .rsvp-submit-btn {
     padding: 0.9rem;
     font-size: 1rem;
   }
+
   .rsvp-subtitulo {
     font-size: 1rem;
   }
 }
-
 /* ========== WEDSHOOTS ========== */
 .wedshoots-section {
   position: relative;
