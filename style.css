@@ -1468,7 +1468,6 @@ body {
   text-transform: uppercase;
   font-weight: 300;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
   padding-bottom: 0.5rem;
   line-height: 1.4;
 }
