@@ -2377,7 +2377,7 @@ body {
 @media (max-width: 768px) {
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 250px;
+    width: 350px;
   }
   .rsvp-section {
     padding-top: calc(4rem + 100px);
@@ -2388,7 +2388,7 @@ body {
 @media (max-width: 576px) {
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 200px;
+    width: 300px;
   }
   .rsvp-section {
     padding-top: calc(3rem + 80px);
