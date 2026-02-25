@@ -94,9 +94,9 @@ src: url('tipografias/Allura-Regular.woff2') format('woff2'),
 /* ========== VARIABLES ========== */
 :root {
   --blanco: #ffffff;
-  --negro: #000000;
+  --negro: #f10000;
   --gris-claro: #f9f7f5;
-  --gris-oscuro: #4a4a4a;
+  --gris-oscuro: #5f5f5f;
   --rosa-palo: #f8e1e1;
   --rosa-palo2: #fff9f9;
   --amarillo-elegante: #eab308;
@@ -1051,6 +1051,7 @@ body {
 
 .historia-contenido {
   text-align: left;
+  margin: 34PX;
 }
 
 .historia-item {
