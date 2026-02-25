@@ -249,9 +249,6 @@ body {
   border-left: 1px solid rgba(255,255,255,0.1);
 }
 
-.offcanvas-header {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
 
 .offcanvas-title {
   font-family: var(--tipografia-manuscrita-brand);
@@ -449,7 +446,6 @@ body {
   letter-spacing: 4px;
   text-transform: uppercase;
   border-top: 1px solid rgba(255,255,255,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
   display: inline-block;
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
@@ -1298,7 +1294,7 @@ body {
 .padrino-redes {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1.54em;
 }
 
 .red-social {
@@ -2456,7 +2452,6 @@ body {
   max-width: 600px;
   margin: 0 auto 3rem;
   opacity: 0.9;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
   padding-bottom: 1.5rem;
 }
 
