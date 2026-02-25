@@ -1295,6 +1295,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1.54em;
+  margin-bottom: 40px;
 }
 
 .red-social {
