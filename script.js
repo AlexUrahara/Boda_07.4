@@ -309,6 +309,7 @@ function initMusica() {
 
 // ---------- LIGHTBOX PARA VESTIMENTA ----------
 // ---------- LIGHTBOX PARA VESTIMENTA (OPTIMIZADO) ----------
+// ---------- LIGHTBOX PARA VESTIMENTA (OPTIMIZADO CON PRECARGA) ----------
 function initLightbox() {
   const modal = document.getElementById('lightboxModal');
   const overlay = document.querySelector('.lightbox-overlay');
@@ -341,11 +342,21 @@ function initLightbox() {
 
   let currentGallery = [];
   let currentIndex = 0;
+  let isTransitioning = false; // Evita múltiples clics durante la transición
+
+  // Precarga todas las imágenes de una galería
+  function precargarImagenes(gallery) {
+    gallery.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }
 
   function abrirLightbox(gallery, index) {
     currentGallery = gallery;
     currentIndex = index;
     imagen.src = currentGallery[currentIndex];
+    precargarImagenes(gallery); // Precarga las demás imágenes
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -356,15 +367,28 @@ function initLightbox() {
   }
 
   function cambiarImagen(direccion) {
-    imagen.classList.add('fade-out');
+    if (isTransitioning) return; // Ignorar clics durante la transición
+    isTransitioning = true;
+
+    // Fade out rápido
+    imagen.style.transition = 'opacity 0.15s ease';
+    imagen.style.opacity = '0';
+
     setTimeout(() => {
+      // Actualizar índice y src
       currentIndex += direccion;
       if (currentIndex < 0) currentIndex = currentGallery.length - 1;
       if (currentIndex >= currentGallery.length) currentIndex = 0;
       imagen.src = currentGallery[currentIndex];
+
+      // Forzar reflow y fade in
+      void imagen.offsetWidth; // Truco para reiniciar la transición
+      imagen.style.opacity = '1';
+
+      // Permitir nuevos clics después de la transición
       setTimeout(() => {
-        imagen.classList.remove('fade-out');
-      }, 50);
+        isTransitioning = false;
+      }, 150); // Debe coincidir con el tiempo de transición
     }, 150);
   }
 
@@ -373,7 +397,7 @@ function initLightbox() {
   botonesEjemplo.forEach((btn, idx) => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      const esCaballeros = idx === 0; // Primer botón = caballeros
+      const esCaballeros = idx === 0;
       const gallery = esCaballeros ? galerias.caballeros : galerias.damas;
       abrirLightbox(gallery, 0);
     });
@@ -385,13 +409,20 @@ function initLightbox() {
   btnPrev.addEventListener('click', () => cambiarImagen(-1));
   btnNext.addEventListener('click', () => cambiarImagen(1));
 
-  // Cerrar con tecla Escape
+  // Navegación con teclado
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       cerrarLightbox();
     }
+    if (e.key === 'ArrowLeft' && modal.classList.contains('active')) {
+      cambiarImagen(-1);
+    }
+    if (e.key === 'ArrowRight' && modal.classList.contains('active')) {
+      cambiarImagen(1);
+    }
   });
 }
+
 // ---------- OBSERVADOR PARA TIMELINE (ITINERARIO) ----------
 function initTimelineObserver() {
   const items = document.querySelectorAll('.timeline-item');
