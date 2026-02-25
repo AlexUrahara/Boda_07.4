@@ -308,22 +308,22 @@ function initMusica() {
 }
 
 // ---------- LIGHTBOX PARA VESTIMENTA ----------
+// ---------- LIGHTBOX PARA VESTIMENTA (OPTIMIZADO) ----------
 function initLightbox() {
-  // Verificar que los elementos necesarios existan
   const modal = document.getElementById('lightboxModal');
   const overlay = document.querySelector('.lightbox-overlay');
   const imagen = document.getElementById('lightboxImagen');
   const btnCerrar = document.getElementById('lightboxCerrar');
   const btnPrev = document.getElementById('lightboxPrev');
   const btnNext = document.getElementById('lightboxNext');
-  const botonesEjemplo = document.querySelectorAll('.btn-ejemplo');
 
-  // Si falta algún elemento esencial, salir sin errores
-  if (!modal || !overlay || !imagen || !btnCerrar || !btnPrev || !btnNext || botonesEjemplo.length === 0) {
-    console.warn('Lightbox no inicializado: faltan elementos en el DOM');
+  // Si falta algún elemento, salimos sin errores
+  if (!modal || !overlay || !imagen || !btnCerrar || !btnPrev || !btnNext) {
+    console.warn('Lightbox: faltan elementos en el DOM. Se omite la inicialización.');
     return;
   }
 
+  // Galerías con las rutas originales
   const galerias = {
     caballeros: [
       'imagenes/vestimenta/hombre01.png',
@@ -368,27 +368,30 @@ function initLightbox() {
     }, 150);
   }
 
+  // Asignar eventos a los botones "Ver ejemplos"
+  const botonesEjemplo = document.querySelectorAll('.btn-ejemplo');
   botonesEjemplo.forEach((btn, idx) => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      const esCaballeros = idx === 0;
+      const esCaballeros = idx === 0; // Primer botón = caballeros
       const gallery = esCaballeros ? galerias.caballeros : galerias.damas;
       abrirLightbox(gallery, 0);
     });
   });
 
+  // Eventos del lightbox
   btnCerrar.addEventListener('click', cerrarLightbox);
   overlay.addEventListener('click', cerrarLightbox);
   btnPrev.addEventListener('click', () => cambiarImagen(-1));
   btnNext.addEventListener('click', () => cambiarImagen(1));
 
+  // Cerrar con tecla Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       cerrarLightbox();
     }
   });
 }
-
 // ---------- OBSERVADOR PARA TIMELINE (ITINERARIO) ----------
 function initTimelineObserver() {
   const items = document.querySelectorAll('.timeline-item');
