@@ -2372,7 +2372,7 @@ body {
   color: var(--gris-oscuro);
   max-width: 600px;
   margin: 0 auto 2rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
 }
 
 /* Formulario */
@@ -2555,7 +2555,7 @@ body {
   }
 
   .rsvp-form {
-    max-width: 100%;
+    max-width: 90%;
   }
 
   .form-group input,
