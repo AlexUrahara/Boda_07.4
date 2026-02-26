@@ -2349,7 +2349,7 @@ body {
 .rsvp-section {
   position: relative;
   background-color: var(--blanco);
-  padding: 3rem 0;
+  padding: 4rem 0;
   text-align: center;
   overflow: visible;      /* Aseguramos que no recorte la imagen superior */
   z-index: 10;             /* Por encima de la sección anterior */
@@ -2538,8 +2538,8 @@ body {
   }
 
   .rsvp-section {
-    padding-top: calc(2rem + 10px);   /* 3rem + espacio */
-    padding-bottom: calc(3rem + 40px);
+    padding-top: calc(2rem + 20px);   /* 3rem + espacio */
+    padding-bottom: calc(2rem + 20px);
   }
 
   .rsvp-form {
