@@ -268,7 +268,7 @@
   </div>
 </section>
 
-<!-- SECCIÓN PADRINOS -->
+<!-- SECCIÓN PADRINOS --> 
 <section id="padrinos" class="padrinos-section">
   <!-- Imágenes decorativas superiores (solo responsive) -->
   <div class="padrino-decor superior-izquierda">
@@ -595,17 +595,19 @@
           <option value="no asistiré">No podré asistir</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="asistentes-group">
         <label for="asistentes">Número de asistentes (incluyéndote):</label>
         <select id="asistentes" name="asistentes" class="form-select" required>
           <option value="" disabled selected>Selecciona</option>
-          <option value="1">1 persona</option>
-          <option value="2">2 personas</option>
-          <option value="3">3 personas</option>
-          <option value="4">4 personas</option>
+          <option value="2">1 Acompañante</option>
+          <option value="3">2 Acompañantes</option>
+          <option value="4">3 Acompañantes</option>
+          <option value="4">4 Acompañantes</option>
         </select>
       </div>
-      <button type="submit" class="rsvp-submit-btn">Confirmar asistencia</button>
+      <button type="submit" class="rsvp-submit-btn">
+        <i class="bi bi-whatsapp" style="margin-right: 8px;"></i> Confirmar asistencia
+      </button>
     </form>
 
     <p class="rsvp-nota">* Al confirmar se abrirá WhatsApp para enviar tu información.</p>

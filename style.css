@@ -97,6 +97,7 @@ src: url('tipografias/Allura-Regular.woff2') format('woff2'),
   --negro: #0a0a0a;
   --gris-claro: #f9f7f5;
   --gris-oscuro: #858585;
+  --cafecito: #f9eee8;
   --gris-oscuro2:rgb(78, 78, 78)5;
   --rosa-palo: #f8e1e1;
   --rosa-palo2: #fff9f9;
@@ -1202,7 +1203,7 @@ body {
 /* ================================================== */
 .padrinos-section {
   position: relative;
-  background-color: var(--blanco);
+  background-color: var(--cafecito);
   padding: 4rem 0;
   overflow: hidden;
 }
@@ -2192,7 +2193,7 @@ body {
 /* ========== MESA DE REGALOS ========== */
 .mesa-regalos-section {
   position: relative;
-  background-color: #f8f1e6;
+  background-color: var(--cafecito);
   padding: 4rem 0;
   text-align: center;
   overflow: visible; /* CAMBIADO: antes era hidden, ahora visible para no recortar la imagen de RSVP */
@@ -2437,7 +2438,10 @@ body {
   transition: all 0.3s ease;
   margin-top: 1rem;
 }
-
+.rsvp-submit-btn i {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
 .rsvp-submit-btn:hover {
   background-color: #128C7E;
   transform: translateY(-3px);

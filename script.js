@@ -531,10 +531,34 @@ function initCarruselFrase() {
   setInterval(cambiarImagen, 4000);
 }
 
-// ---------- FORMULARIO RSVP POR WHATSAPP ----------
+/// ---------- FORMULARIO RSVP POR WHATSAPP (MEJORADO) ----------
 function initRSVPForm() {
   const form = document.getElementById('rsvp-form');
   if (!form) return;
+
+  const confirmacionSelect = document.getElementById('confirmacion');
+  const asistentesGroup = document.getElementById('asistentes-group');
+  const asistentesSelect = document.getElementById('asistentes');
+
+  // Función para habilitar/deshabilitar el campo de asistentes según la confirmación
+  function toggleAsistentes() {
+    const valor = confirmacionSelect.value;
+    if (valor === 'no asistiré') {
+      // Si no asiste, deshabilitar y quitar required
+      asistentesSelect.disabled = true;
+      asistentesSelect.required = false;
+      asistentesGroup.style.opacity = '0.5'; // Atenuar visualmente
+    } else {
+      // Si asiste o no ha seleccionado, habilitar
+      asistentesSelect.disabled = false;
+      asistentesSelect.required = true;
+      asistentesGroup.style.opacity = '1';
+    }
+  }
+
+  // Ejecutar al cargar y al cambiar la selección
+  toggleAsistentes();
+  confirmacionSelect.addEventListener('change', toggleAsistentes);
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -542,20 +566,28 @@ function initRSVPForm() {
     const nombre = document.getElementById('nombre').value.trim();
     const apellidos = document.getElementById('apellidos').value.trim();
     const confirmacion = document.getElementById('confirmacion').value;
-    const asistentes = document.getElementById('asistentes').value;
 
-    if (!nombre || !apellidos || !confirmacion || !asistentes) {
-      alert('Por favor, completa todos los campos.');
+    // Validación básica
+    if (!nombre || !apellidos || !confirmacion) {
+      alert('Por favor, completa tu nombre, apellidos y confirmación.');
       return;
     }
 
-    // Construir mensaje
-    const mensaje = `Hola soy, ${nombre} ${apellidos}, *${confirmacion}* a la fiesta de celebración en el local, iré con ${asistentes} ${asistentes === '1' ? 'persona' : 'personas'} a celebrar con ustedes!`;
+    let mensaje = '';
+    const numero = '5544705244'; // Código de país 52 para México
 
-    // Número de WhatsApp (código de país 52 para México)
-    const numero = '5544705244';
+    if (confirmacion === 'si asistiré') {
+      const asistentes = document.getElementById('asistentes').value;
+      if (!asistentes) {
+        alert('Por favor, selecciona el número de asistentes.');
+        return;
+      }
+      mensaje = `Hola soy, ${nombre} ${apellidos}, *${confirmacion}* a la fiesta de celebración en el local, iré con ${asistentes} ${asistentes === '1' ? 'persona' : 'personas'} a celebrar con ustedes!`;
+    } else if (confirmacion === 'no asistiré') {
+      mensaje = `Hola soy, ${nombre} ${apellidos}, y tristemente no podré asistir a la celebración de su boda, pero les mando mis felicitaciones!`;
+    }
+
     const url = `https://wa.me/52${numero}?text=${encodeURIComponent(mensaje)}`;
-
     window.open(url, '_blank');
   });
 }
