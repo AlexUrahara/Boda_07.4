@@ -2346,13 +2346,22 @@ body {
 }
 
 /* ========== RSVP ========== */
+:root {
+  --rsvp-min-height: 80vh; /* Cambia este valor para modificar la altura */
+}
+
 .rsvp-section {
   position: relative;
   background-color: var(--blanco);
-  padding: 4rem 0;
+  min-height: var(--rsvp-min-height); /* Control unificado de altura */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente el contenido */
   text-align: center;
-  overflow: visible;      /* Aseguramos que no recorte la imagen superior */
-  z-index: 10;             /* Por encima de la sección anterior */
+  overflow: visible;
+  z-index: 10;
+  padding: 2rem 0; /* Espaciado interior mínimo (puedes ajustarlo) */
+  box-sizing: border-box;
 }
 
 .rsvp-subtitulo {
@@ -2369,7 +2378,7 @@ body {
 /* Formulario */
 .rsvp-form {
   max-width: 400px;
-  margin: 2rem auto 0;
+  margin: 0 auto; /* Eliminado el margen superior para que el centrado funcione mejor */
   text-align: left;
   background: transparent;
   border: none;
@@ -2437,10 +2446,13 @@ body {
   transition: all 0.3s ease;
   margin-top: 1rem;
 }
+
 .rsvp-submit-btn i {
   font-size: 1.2rem;
   vertical-align: middle;
+  margin-right: 8px;
 }
+
 .rsvp-submit-btn:hover {
   background-color: #128C7E;
   transform: translateY(-3px);
@@ -2461,13 +2473,13 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 15;            /* Por encima del contenido de la sección anterior */
+  z-index: 15;
   pointer-events: none;
   display: none;
 }
 
 .rsvp-imagen-superior {
-  top: 0;                  /* Se ajustará con top negativo en responsive */
+  top: 0;
 }
 
 .rsvp-imagen-inferior {
@@ -2490,20 +2502,20 @@ body {
   }
 
   .rsvp-imagen-superior {
-    top: -50px;            /* Sobresale hacia arriba */
+    top: -50px;
   }
 
   .rsvp-imagen-superior img {
-    width:800px;
+    width: 800px; /* Ajusta según tu imagen */
   }
 
   .rsvp-imagen-inferior img {
-    width: 300px;
+    width: 300px; /* Ajusta según tu imagen */
   }
 
   .rsvp-section {
-    padding-top: calc(4rem + 80px);   /* 4rem (padding original) + espacio para la imagen */
-    padding-bottom: calc(4rem + 60px);
+    padding-top: calc(2rem + 60px);  /* Espacio para la imagen superior */
+    padding-bottom: calc(2rem + 40px);
   }
 
   .rsvp-subtitulo {
@@ -2513,32 +2525,32 @@ body {
 
 @media (max-width: 768px) {
   .rsvp-imagen-superior {
-    top: -50px;
+    top: -40px;
   }
 
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 1110px;
+    width: 600px; /* Ajusta según tu imagen */
   }
 
   .rsvp-section {
-    padding-top: calc(4rem + 70px);
-    padding-bottom: calc(4rem + 50px);
+    padding-top: calc(2rem + 50px);
+    padding-bottom: calc(2rem + 30px);
   }
 }
 
 @media (max-width: 576px) {
   .rsvp-imagen-superior {
-    top: -50px;            /* Ajusta este valor según necesites */
+    top: -30px;
   }
 
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 900px;
+    width: 400px; /* Ajusta según tu imagen */
   }
 
   .rsvp-section {
-    padding-top: calc(2rem + 20px);   /* 3rem + espacio */
+    padding-top: calc(2rem + 40px);
     padding-bottom: calc(2rem + 20px);
   }
 
@@ -2561,6 +2573,7 @@ body {
     font-size: 1rem;
   }
 }
+
 /* ========== WEDSHOOTS ========== */
 .wedshoots-section {
   position: relative;
