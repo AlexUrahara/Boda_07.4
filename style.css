@@ -2491,11 +2491,11 @@ body {
   }
 
   .rsvp-imagen-superior {
-    top: -60px;            /* Sobresale hacia arriba */
+    top: -50px;            /* Sobresale hacia arriba */
   }
 
   .rsvp-imagen-superior img {
-    width:500px;
+    width:800px;
   }
 
   .rsvp-imagen-inferior img {
@@ -2514,12 +2514,12 @@ body {
 
 @media (max-width: 768px) {
   .rsvp-imagen-superior {
-    top: -40px;
+    top: -50px;
   }
 
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 580px;
+    width: 1110px;
   }
 
   .rsvp-section {
@@ -2530,12 +2530,12 @@ body {
 
 @media (max-width: 576px) {
   .rsvp-imagen-superior {
-    top: -40px;            /* Ajusta este valor según necesites */
+    top: -50px;            /* Ajusta este valor según necesites */
   }
 
   .rsvp-imagen-superior img,
   .rsvp-imagen-inferior img {
-    width: 550px;
+    width: 900px;
   }
 
   .rsvp-section {
