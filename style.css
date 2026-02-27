@@ -2374,10 +2374,10 @@ body {
 
 @media (max-width: 576px) {
   .mesa-decor.superior-izquierda img {
-    width: 120px;
+    width: 160px;
   }
   .mesa-decor.superior-derecha img {
-    width: 100px;
+    width: 130px;
   }
   .mesa-grid {
     gap: 1rem;
