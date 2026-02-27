@@ -321,7 +321,7 @@ function initMusica() {
 //   document.addEventListener('touchstart', startOnInteraction, { once: true });
 // });
 
- audio.play().then(() => {
+/* audio.play().then(() => {
    isPlaying = true;
    icon.className = 'bi bi-pause-circle';
  }).catch(() => {
@@ -336,7 +336,7 @@ function initMusica() {
    };
    document.addEventListener('click', startOnInteraction, { once: true });
    document.addEventListener('touchstart', startOnInteraction, { once: true });
- });
+ });*/
 }
 
 // ---------- LIGHTBOX PARA VESTIMENTA ----------
