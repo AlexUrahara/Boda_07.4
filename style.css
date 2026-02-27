@@ -2218,7 +2218,7 @@ body {
   height: auto;
 }
 
-/* Tamaños de las imágenes decorativas (ajusta según necesidad) */
+/* Tamaños de las imágenes decorativas (sin opacidad) */
 .mesa-decor.superior-izquierda img {
   width: 180px; /* Ajusta este valor */
 }
@@ -2334,11 +2334,9 @@ body {
 @media (max-width: 991px) {
   .mesa-decor.superior-izquierda img {
     width: 140px;
-    opacity: 0.6;
   }
   .mesa-decor.superior-derecha img {
     width: 120px;
-    opacity: 0.6;
   }
   .mesa-imagen-inferior {
     display: block;
@@ -2356,7 +2354,7 @@ body {
     width: 120px;
   }
   .mesa-decor.superior-derecha img {
-    width: 120px;
+    width: 100px;
   }
   .mesa-imagen-inferior img {
     width: 130px;
@@ -2368,10 +2366,10 @@ body {
 
 @media (max-width: 576px) {
   .mesa-decor.superior-izquierda img {
-    width: 120px;
+    width: 90px;
   }
   .mesa-decor.superior-derecha img {
-    width: 120px;
+    width: 80px;
   }
   .mesa-grid {
     gap: 1rem;
@@ -2393,7 +2391,6 @@ body {
     padding-bottom: calc(3rem + 110px);
   }
 }
-
 /* ========== RSVP ========== */
 :root {
   --rsvp-min-height: 80vh; /* Cambia este valor para modificar la altura */
