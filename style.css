@@ -1788,9 +1788,8 @@ body {
 @media (max-width: 992px) {
   .itinerario-section::before,
   .itinerario-section::after {
-    width: 120px;
-    height: 120px;
-    opacity: 0.5;
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -1803,9 +1802,8 @@ body {
 @media (max-width: 768px) {
   .itinerario-section::before,
   .itinerario-section::after {
-    width: 100px;
-    height: 100px;
-    opacity: 0.4;
+    width: 160px;
+    height: 160px;
   }
   .timeline::before { left: 50% !important; transform: translateX(-50%); width: 2px; }
   .timeline-item {
@@ -1854,9 +1852,8 @@ body {
 @media (max-width: 576px) {
   .itinerario-section::before,
   .itinerario-section::after {
-    width: 140px;
-    height: 140px;
-    opacity: 0.3;
+    width: 160px;
+    height: 160px;
   }
   .hora { font-size: 1.5rem; }
   .timeline-gif { width: 68px; height: 65px; }
