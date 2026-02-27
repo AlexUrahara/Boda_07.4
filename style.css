@@ -2193,45 +2193,38 @@ body {
   background-color: var(--cafecito);
   padding: 4rem 0;
   text-align: center;
-  overflow: visible;
-  z-index: 1;
+  overflow: visible; /* Para que las imágenes decorativas no se recorten */
 }
 
-/* Decoraciones superiores */
+/* Decoraciones superiores (marco-31 y marco-32) */
 .mesa-decor {
-  position: absolute !important;
-  top: 0 !important;
-  z-index: 20 !important;
+  position: absolute;
+  top: 0;
+  z-index: 5;
   pointer-events: none;
-  display: block !important;
-  opacity: 1 !important;
 }
 
 .mesa-decor.superior-izquierda {
-  left: 0 !important;
+  left: 0;
 }
 
 .mesa-decor.superior-derecha {
-  right: 0 !important;
+  right: 0;
 }
 
 .mesa-decor img {
-  display: block !important;
+  display: block;
   width: 100%;
   height: auto;
-  opacity: 1 !important;
-  max-width: none;
 }
 
-/* Reflejar la imagen derecha */
-.mesa-decor.superior-derecha img.reflejada {
-  transform: scaleX(-1); /* Efecto espejo horizontal */
+/* Tamaños de las imágenes decorativas (ajusta según necesidad) */
+.mesa-decor.superior-izquierda img {
+  width: 180px; /* Ajusta este valor */
 }
 
-/* Tamaños base (escritorio) - IGUALES PARA AMBAS */
-.mesa-decor.superior-izquierda img,
 .mesa-decor.superior-derecha img {
-  width: 200px; /* Mismo tamaño para izquierda y derecha */
+  width: 160px; /* Ajusta este valor */
 }
 
 .mesa-subtitulo {
@@ -2251,8 +2244,6 @@ body {
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
 }
 
 .mesa-card {
@@ -2322,13 +2313,13 @@ body {
   border-color: #8B7355;
 }
 
-/* Imagen decorativa inferior */
+/* Imagen decorativa inferior (solo responsive) */
 .mesa-imagen-inferior {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 5;
   pointer-events: none;
   display: none;
 }
@@ -2337,14 +2328,17 @@ body {
   width: 150px;
   height: auto;
   display: block;
-  opacity: 1;
 }
 
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
-  .mesa-decor.superior-izquierda img,
+  .mesa-decor.superior-izquierda img {
+    width: 140px;
+    opacity: 0.6;
+  }
   .mesa-decor.superior-derecha img {
-    width: 180px; /* Iguales */
+    width: 120px;
+    opacity: 0.6;
   }
   .mesa-imagen-inferior {
     display: block;
@@ -2358,9 +2352,11 @@ body {
 }
 
 @media (max-width: 768px) {
-  .mesa-decor.superior-izquierda img,
+  .mesa-decor.superior-izquierda img {
+    width: 120px;
+  }
   .mesa-decor.superior-derecha img {
-    width: 160px; /* Iguales */
+    width: 120px;
   }
   .mesa-imagen-inferior img {
     width: 130px;
@@ -2371,9 +2367,11 @@ body {
 }
 
 @media (max-width: 576px) {
-  .mesa-decor.superior-izquierda img,
+  .mesa-decor.superior-izquierda img {
+    width: 120px;
+  }
   .mesa-decor.superior-derecha img {
-    width: 140px; /* Iguales */
+    width: 120px;
   }
   .mesa-grid {
     gap: 1rem;
@@ -2395,6 +2393,7 @@ body {
     padding-bottom: calc(3rem + 110px);
   }
 }
+
 /* ========== RSVP ========== */
 :root {
   --rsvp-min-height: 80vh; /* Cambia este valor para modificar la altura */
