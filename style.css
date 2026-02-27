@@ -1330,9 +1330,9 @@ body {
 
 @media (max-width: 991px) {
   .padrino-decor { display: block; }
-  .padrino-decor.superior-izquierda img { width: 160px; opacity: 0.6; }
-  .padrino-decor.superior-derecha img { width: 160px; opacity: 0.6; }
-  .padrino-decor.inferior-centro img { width: 270px; opacity: 0.6; }
+  .padrino-decor.superior-izquierda img { width: 160px  }
+  .padrino-decor.superior-derecha img { width: 160px; }
+  .padrino-decor.inferior-centro img { width: 270px; }
 }
 
 @media (max-width: 768px) {
