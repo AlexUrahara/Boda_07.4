@@ -2223,13 +2223,15 @@ body {
   max-width: none;
 }
 
-/* Tamaños base (escritorio) */
-.mesa-decor.superior-izquierda img {
-  width: 200px;
+/* Reflejar la imagen derecha */
+.mesa-decor.superior-derecha img.reflejada {
+  transform: scaleX(-1); /* Efecto espejo horizontal */
 }
 
+/* Tamaños base (escritorio) - IGUALES PARA AMBAS */
+.mesa-decor.superior-izquierda img,
 .mesa-decor.superior-derecha img {
-  width: 180px;
+  width: 200px; /* Mismo tamaño para izquierda y derecha */
 }
 
 .mesa-subtitulo {
@@ -2340,11 +2342,9 @@ body {
 
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
-  .mesa-decor.superior-izquierda img {
-    width: 180px;
-  }
+  .mesa-decor.superior-izquierda img,
   .mesa-decor.superior-derecha img {
-    width: 160px;
+    width: 180px; /* Iguales */
   }
   .mesa-imagen-inferior {
     display: block;
@@ -2358,11 +2358,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  .mesa-decor.superior-izquierda img {
-    width: 160px;
-  }
+  .mesa-decor.superior-izquierda img,
   .mesa-decor.superior-derecha img {
-    width: 140px;
+    width: 160px; /* Iguales */
   }
   .mesa-imagen-inferior img {
     width: 130px;
@@ -2373,11 +2371,9 @@ body {
 }
 
 @media (max-width: 576px) {
-  .mesa-decor.superior-izquierda img {
-    width: 140px;
-  }
+  .mesa-decor.superior-izquierda img,
   .mesa-decor.superior-derecha img {
-    width: 120px;
+    width: 140px; /* Iguales */
   }
   .mesa-grid {
     gap: 1rem;
