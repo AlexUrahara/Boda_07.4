@@ -2193,18 +2193,18 @@ body {
   background-color: var(--cafecito);
   padding: 4rem 0;
   text-align: center;
-  overflow: visible; /* Importante: no ocultar elementos que sobresalgan */
-  z-index: 1; /* Contexto de apilamiento base */
+  overflow: visible;
+  z-index: 1;
 }
 
-/* Decoraciones superiores - ESTILO FUERTE PARA QUE SE VEGAN */
+/* Decoraciones superiores */
 .mesa-decor {
-  position: absolute !important; /* Forzar posición absoluta */
+  position: absolute !important;
   top: 0 !important;
-  z-index: 20 !important; /* Muy por encima de todo */
+  z-index: 20 !important;
   pointer-events: none;
-  display: block !important; /* Forzar visibilidad */
-  opacity: 1 !important; /* Sin transparencia */
+  display: block !important;
+  opacity: 1 !important;
 }
 
 .mesa-decor.superior-izquierda {
@@ -2219,17 +2219,17 @@ body {
   display: block !important;
   width: 100%;
   height: auto;
-  opacity: 1 !important; /* Asegurar que la imagen no tenga opacidad */
-  max-width: none; /* Permitir que la imagen tenga el tamaño que le asignemos */
+  opacity: 1 !important;
+  max-width: none;
 }
 
-/* Tamaños de las imágenes decorativas (ajusta a tu gusto) */
+/* Tamaños base (escritorio) */
 .mesa-decor.superior-izquierda img {
-  width: 200px; /* Aumentado para que se note más */
+  width: 200px;
 }
 
 .mesa-decor.superior-derecha img {
-  width: 180px; /* Aumentado */
+  width: 180px;
 }
 
 .mesa-subtitulo {
@@ -2250,7 +2250,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 2; /* El contenido va por encima del fondo pero debajo de las decoraciones */
+  z-index: 2;
 }
 
 .mesa-card {
@@ -2341,10 +2341,10 @@ body {
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
   .mesa-decor.superior-izquierda img {
-    width: 160px;
+    width: 180px;
   }
   .mesa-decor.superior-derecha img {
-    width: 140px;
+    width: 160px;
   }
   .mesa-imagen-inferior {
     display: block;
@@ -2359,10 +2359,10 @@ body {
 
 @media (max-width: 768px) {
   .mesa-decor.superior-izquierda img {
-    width: 140px;
+    width: 160px;
   }
   .mesa-decor.superior-derecha img {
-    width: 120px;
+    width: 140px;
   }
   .mesa-imagen-inferior img {
     width: 130px;
@@ -2374,10 +2374,10 @@ body {
 
 @media (max-width: 576px) {
   .mesa-decor.superior-izquierda img {
-    width: 160px;
+    width: 140px;
   }
   .mesa-decor.superior-derecha img {
-    width: 130px;
+    width: 120px;
   }
   .mesa-grid {
     gap: 1rem;
