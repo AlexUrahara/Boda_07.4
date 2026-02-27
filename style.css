@@ -1331,19 +1331,19 @@ body {
 @media (max-width: 991px) {
   .padrino-decor { display: block; }
   .padrino-decor.superior-izquierda img { width: 160px; opacity: 0.6; }
-  .padrino-decor.superior-derecha img { width: 120px; opacity: 0.6; }
+  .padrino-decor.superior-derecha img { width: 160px; opacity: 0.6; }
   .padrino-decor.inferior-centro img { width: 270px; opacity: 0.6; }
 }
 
 @media (max-width: 768px) {
   .padrino-decor.superior-izquierda img { width: 150px; }
-  .padrino-decor.superior-derecha img { width: 100px; }
+  .padrino-decor.superior-derecha img { width: 150px; }
   .padrino-decor.inferior-centro img { width: 250px; }
 }
 
 @media (max-width: 576px) {
   .padrino-decor.superior-izquierda img { width: 120px; }
-  .padrino-decor.superior-derecha img { width: 80px; }
+  .padrino-decor.superior-derecha img { width: 120px; }
   .padrino-decor.inferior-centro img { width: 220px;  }
 }
 
