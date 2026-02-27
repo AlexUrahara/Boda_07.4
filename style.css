@@ -2193,38 +2193,43 @@ body {
   background-color: var(--cafecito);
   padding: 4rem 0;
   text-align: center;
-  overflow: visible; /* Para que las imágenes decorativas no se recorten */
+  overflow: visible; /* Importante: no ocultar elementos que sobresalgan */
+  z-index: 1; /* Contexto de apilamiento base */
 }
 
-/* Decoraciones superiores (marco-31 y marco-32) */
+/* Decoraciones superiores - ESTILO FUERTE PARA QUE SE VEGAN */
 .mesa-decor {
-  position: absolute;
-  top: 0;
-  z-index: 5;
+  position: absolute !important; /* Forzar posición absoluta */
+  top: 0 !important;
+  z-index: 20 !important; /* Muy por encima de todo */
   pointer-events: none;
+  display: block !important; /* Forzar visibilidad */
+  opacity: 1 !important; /* Sin transparencia */
 }
 
 .mesa-decor.superior-izquierda {
-  left: 0;
+  left: 0 !important;
 }
 
 .mesa-decor.superior-derecha {
-  right: 0;
+  right: 0 !important;
 }
 
 .mesa-decor img {
-  display: block;
+  display: block !important;
   width: 100%;
   height: auto;
+  opacity: 1 !important; /* Asegurar que la imagen no tenga opacidad */
+  max-width: none; /* Permitir que la imagen tenga el tamaño que le asignemos */
 }
 
-/* Tamaños de las imágenes decorativas (sin opacidad) */
+/* Tamaños de las imágenes decorativas (ajusta a tu gusto) */
 .mesa-decor.superior-izquierda img {
-  width: 180px; /* Ajusta este valor */
+  width: 200px; /* Aumentado para que se note más */
 }
 
 .mesa-decor.superior-derecha img {
-  width: 160px; /* Ajusta este valor */
+  width: 180px; /* Aumentado */
 }
 
 .mesa-subtitulo {
@@ -2244,6 +2249,8 @@ body {
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2; /* El contenido va por encima del fondo pero debajo de las decoraciones */
 }
 
 .mesa-card {
@@ -2313,13 +2320,13 @@ body {
   border-color: #8B7355;
 }
 
-/* Imagen decorativa inferior (solo responsive) */
+/* Imagen decorativa inferior */
 .mesa-imagen-inferior {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 10;
   pointer-events: none;
   display: none;
 }
@@ -2328,15 +2335,16 @@ body {
   width: 150px;
   height: auto;
   display: block;
+  opacity: 1;
 }
 
 /* ===== MEDIA QUERIES ===== */
 @media (max-width: 991px) {
   .mesa-decor.superior-izquierda img {
-    width: 140px;
+    width: 160px;
   }
   .mesa-decor.superior-derecha img {
-    width: 120px;
+    width: 140px;
   }
   .mesa-imagen-inferior {
     display: block;
@@ -2351,10 +2359,10 @@ body {
 
 @media (max-width: 768px) {
   .mesa-decor.superior-izquierda img {
-    width: 120px;
+    width: 140px;
   }
   .mesa-decor.superior-derecha img {
-    width: 100px;
+    width: 120px;
   }
   .mesa-imagen-inferior img {
     width: 130px;
@@ -2366,10 +2374,10 @@ body {
 
 @media (max-width: 576px) {
   .mesa-decor.superior-izquierda img {
-    width: 90px;
+    width: 120px;
   }
   .mesa-decor.superior-derecha img {
-    width: 80px;
+    width: 100px;
   }
   .mesa-grid {
     gap: 1rem;
