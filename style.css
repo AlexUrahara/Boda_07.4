@@ -1337,13 +1337,13 @@ body {
 
 @media (max-width: 768px) {
   .padrino-decor.superior-izquierda img { width: 150px; }
-  .padrino-decor.superior-derecha img { width: 150px; }
+  .padrino-decor.superior-derecha img { width: 130px; }
   .padrino-decor.inferior-centro img { width: 250px; }
 }
 
 @media (max-width: 576px) {
   .padrino-decor.superior-izquierda img { width: 120px; }
-  .padrino-decor.superior-derecha img { width: 120px; }
+  .padrino-decor.superior-derecha img { width: 115px; }
   .padrino-decor.inferior-centro img { width: 220px;  }
 }
 
